@@ -1,6 +1,13 @@
 package com.company;
 
 class Calculator {
-    int number;
+    private int number;
 
+    int getNumber() {
+        return number;
+    }
+
+    void setNumber(int number) {
+        this.number = number;
+    }
 }

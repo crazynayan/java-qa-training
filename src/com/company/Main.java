@@ -6,6 +6,9 @@ public class Main {
         System.out.println("Hello World!");
         Calculator calc;
         calc = new Calculator();
-        System.out.println(calc.number);
+        calc.setNumber(1);
+        System.out.println(calc.getNumber());
+        calc.setNumber(2);
+        System.out.println(calc.getNumber());
     }
 }
