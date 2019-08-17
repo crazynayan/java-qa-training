@@ -10,4 +10,8 @@ class Calculator {
     void setNumber(int number) {
         this.number = number;
     }
+
+    void clear() {
+        number = 0;
+    }
 }

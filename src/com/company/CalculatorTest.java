@@ -29,4 +29,18 @@ class CalculatorTest {
         calc.setNumber(-45);
         assertEquals(-45, calc.getNumber());
     }
+
+    @Test
+    void testClearAtStart() {
+        calc.clear();
+        assertEquals(0, calc.getNumber());
+    }
+
+    @Test
+    void testClearWithNumber() {
+        calc.setNumber(789);
+        calc.clear();
+        assertEquals(0, calc.getNumber());
+    }
+
 }
