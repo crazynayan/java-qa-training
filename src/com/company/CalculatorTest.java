@@ -14,7 +14,19 @@ class CalculatorTest {
     }
 
     @Test
-    void getNumber() {
+    void testInitialNumberIsZero() {
         assertEquals(0, calc.getNumber());
+    }
+
+    @Test
+    void testPositiveNumber() {
+        calc.setNumber(123);
+        assertEquals(123, calc.getNumber());
+    }
+
+    @Test
+    void testNegativeNumber() {
+        calc.setNumber(-45);
+        assertEquals(-45, calc.getNumber());
     }
 }
