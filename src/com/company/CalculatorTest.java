@@ -43,4 +43,16 @@ class CalculatorTest {
         assertEquals(0, calc.getNumber());
     }
 
+    @Test
+    void testLargestNumber() {
+        calc.setNumber(2147483647);
+        assertEquals(2147483647, calc.getNumber());
+    }
+
+    @Test
+    void testSmallestNumber() {
+        calc.setNumber(-2147483648);
+        assertEquals(-2147483648, calc.getNumber());
+    }
+
 }
