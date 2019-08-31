@@ -2,7 +2,12 @@ package com.company;
 
 class Calculator {
     private int number;
-    private boolean readyToAccept = true;
+    private boolean readyToAccept;
+
+    Calculator() {
+        number = 0;
+        readyToAccept = true;
+    }
 
     int getNumber() {
         return number;
