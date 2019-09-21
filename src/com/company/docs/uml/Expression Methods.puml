@@ -1,0 +1,45 @@
+@startuml
+title Expression - How its variables are updated.
+
+start
+:updateNumber;
+:accept int number as input;
+if (sign present?) then (yes)
+    :save input to number2;
+else (no)
+    :save input to number1;
+endif
+:return nothing;
+stop
+
+start
+:updateSign;
+:accept char sign as input;
+if (sign present?) then (yes)
+    :raise exception;
+else (no)
+    if (input is '+') then (yes)
+        :save input to sign;
+    else
+        :raise exception;
+    endif
+endif
+:return nothing;
+stop
+
+start
+:evaluate;
+:accept nothing;
+if (sign present?) then (yes)
+    if (number2 not present?) then (yes)
+        :save number1 to number2;
+    endif
+    :save number1 + number2 to result;
+else (no)
+    :save number1 to result;
+endif
+:save result to number1;
+:clear sign and number2;
+:return result;
+stop
+@enduml

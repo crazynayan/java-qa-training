@@ -1,0 +1,14 @@
+@startuml
+title
+    ** src ** (Root folder)
+    |_ ** main **
+      |_ Calculator
+      |_ Expression
+    |_ ** test **
+      |_ CalculatorTest
+      |_ ExpressionTest
+    |_ ** docs **
+      |_ uml
+      |_ png
+end title
+@enduml

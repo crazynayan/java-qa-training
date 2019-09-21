@@ -1,0 +1,13 @@
+@startuml
+
+
+class Calculator {
+-number: int
+-readyToAccept: boolean
+~getNumber(): int
+~setNumber(int)
+~isReadyToAccept(): boolean
+~clear()
+}
+
+@enduml

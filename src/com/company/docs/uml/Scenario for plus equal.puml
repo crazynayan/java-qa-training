@@ -1,0 +1,60 @@
+@startuml
+start
+:Section 1 - Transaction **26 + 35**
+|= Input |= Number |= Equation |= Notes |
+<#aqua>| 26 | 26 | _ _ 26 | a) digit |
+<#FFAAAA>| 26 + | 26 | _ + 26 | b) + | |
+<#aqua>| 26 + 35 | 35 | 26 + 35 | c) =|;
+note right #aqua
+= Processing Steps when digit(s) are input
+# Update number with input
+# Update number1 with number2 if number1 is empty
+# Update number2  with input
+end note
+note left #yellow
+= Processing Steps when = sign is input
+# Update number2 with number1 if number2 is empty
+# Calculate the result of the equation
+# Updating number & number1 with result
+end note
+note right #FFAAAA
+= Processing Steps when + sign is input
+# Update sign with input
+# Remaining steps will be discussed in the next class
+end note
+if (+ or =) then (+)
+    :Section 1.1 - Transaction **26 + 35 + **
+    |= Input |= Number |= Equation |= Notes |
+    <#FFAAAA>| 26 + 35 + | 61 | 61 + | a) + |;
+    if (1 or = ) then (1)
+        :Section 1.1.1 - Transaction **26 + 35 + 1 =**
+        |= Input |= Number |= Equation |= Notes |
+        <#aqua>| 26 + 35 + 1| 1| 61 + 1| a) digit |
+        <#yellow>| 26 + 35 + 1 = | 62 | 62 + 1 | b) = |;
+    else (=)
+        :Section 1.1.2 - Transaction **26 + 35 + = + =**
+        |= Input |= Number |= Equation |= Notes |
+        <#yellow>| 26 + 35 + =| 122 | 122 + 61| a) =|
+        <#FFAAAA>| 26 + 35 + = +| 122| 122 +  | b) +|
+        <#yellow>| 26 + 35 + = + = | 244 | 122 + 122 | c) =|;
+    endif
+else (=)
+    :Section 1.2 - Transaction **26 + 35 =**
+    |= Input |= Number |= Equation |= Notes |
+    <#yellow>| 26 + 35 = | 61| 61 + 35| |;
+    if (+ or =) then (+)
+        :Section 1.2.1 - Transaction **26 + 35 = + 1 =**
+        |= Input |= Number |= Equation |= Notes |
+        <#FFAAAA>| 26 + 35 = + | 61 | 61 + | a) + |
+        <#aqua>| 26 + 35 = + 1| 1 | 61 + 1| b) digit |
+        <#yellow>| 26 + 35 = + 1 = | 62| 62 + 1| c) = |;
+    else (=)
+        :Section 1.2.2 - Transaction **26 + 35 = = =**
+        |= Input |= Number |= Equation |= Notes |
+        <#yellow>| 26 + 35 = = | 96 | 96 + 35| a) = |
+        <#yellow>| 26 + 35 = = =| 131 | 131 + 35| b) =|
+        | | | | |;
+    endif
+endif
+end
+@enduml
