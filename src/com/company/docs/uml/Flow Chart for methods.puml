@@ -1,0 +1,51 @@
+@startuml
+title Calculator Methods - Flow Chart
+
+start
+:**setNumber**;
+:accept int number as input;
+if (previous input is digit) then (yes)
+    :raise exception;
+else (no)
+    :update number with input;
+    :indicate previous input is digit;
+endif
+:return nothing;
+stop
+
+start
+:**setESign**;
+:accept String sign as input;
+if (previous input is sign) then (yes)
+    :raise exception;
+else (no)
+    if (input is '+') then (yes)
+        :update eSign with input;
+        if (previous input is digit) then (yes)
+            :update result with number + eNumber;
+            :update number with result;
+        endif
+        :update eNumber with number;
+        :indicate previous input is a sign;
+        :turn ON eSignAccepted flag;
+    else (no)
+        :raise exception;
+    endif
+endif
+:return nothing;
+stop
+
+start
+:**evaluate**;
+:accept nothing;
+:save number;
+:update result with number + eNumber;
+:update number with result;
+if (eSignAccepted is ON) then (yes)
+    :update eNumber with the saved number;
+endif
+:indicate previous input is =;
+:turn OFF eSignAccepted flag;
+:return result;
+stop
+@enduml

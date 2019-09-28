@@ -1,7 +1,7 @@
 @startuml
 
 
-class Calculator {
+class OldCalculator {
 -number: int
 -readyToAccept: boolean
 ~getNumber(): int
@@ -9,5 +9,27 @@ class Calculator {
 ~isReadyToAccept(): boolean
 ~clear()
 }
+
+class Calculator {
+-number: int
+-eNumber: int
+-eSign: String
+-previousInput: String
+-eSignAccepted:boolean
+~getNumber(): int
+~setNumber(int)
+-isReadyToAcceptDigit(): boolean
+-isReadyToAcceptSign(): boolean
+~clear()
+~setESign(String)
+~evaluate() : int
+}
+note bottom
+# number and eNumber defaults to 0
+# previousInput can be "digit", "sign", "=" or "" (empty). Defaults to empty.
+# eSign can be "+" or "" (empty). Defaults to empty.
+# eSignAccepted defaults to false.
+end note
+
 
 @enduml

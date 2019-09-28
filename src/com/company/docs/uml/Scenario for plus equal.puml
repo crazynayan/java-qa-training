@@ -2,58 +2,67 @@
 start
 :Section 1 - Transaction **26 + 35**
 |= Input |= Number |= Equation |= Notes |
-<#aqua>| 26 | 26 | _ _ 26 | a) digit |
-<#FFAAAA>| 26 + | 26 | _ + 26 | b) + | |
-<#aqua>| 26 + 35 | 35 | 26 + 35 | c) =|;
+<#aqua>| 26 | 26 | 0 _ OFF | a) digit |
+<#FFAAAA>| 26 + | 26 | 26 + ON | b) + | |
+<#aqua>| 26 + 35 | 35 | 26 + ON | c) digit|;
 note right #aqua
 = Processing Steps when digit(s) are input
 # Update number with input
-# Update number1 with number2 if number1 is empty
-# Update number2  with input
 end note
 note left #yellow
 = Processing Steps when = sign is input
-# Update number2 with number1 if number2 is empty
-# Calculate the result of the equation
-# Updating number & number1 with result
+# Save number
+# Update number with result (number + eNumber)
+# Update eNumber with the saved number if eSignAccepted is ON
+# Turn OFF eSignAccepted
 end note
 note right #FFAAAA
 = Processing Steps when + sign is input
-# Update sign with input
-# Remaining steps will be discussed in the next class
+# Update eSign with input
+# Update number with result (number + eNumber) if previous input is digit
+# Update eNumber with number
+# Turn ON eSignAccepted
 end note
 if (+ or =) then (+)
-    :Section 1.1 - Transaction **26 + 35 + **
+    :Section 1.1 - Transaction **26 + 35 +**
     |= Input |= Number |= Equation |= Notes |
-    <#FFAAAA>| 26 + 35 + | 61 | 61 + | a) + |;
+    <#FFAAAA>| 26 + 35 + | 61 | 61 + ON | a) + |;
     if (1 or = ) then (1)
         :Section 1.1.1 - Transaction **26 + 35 + 1 =**
         |= Input |= Number |= Equation |= Notes |
-        <#aqua>| 26 + 35 + 1| 1| 61 + 1| a) digit |
-        <#yellow>| 26 + 35 + 1 = | 62 | 62 + 1 | b) = |;
+        <#aqua>| 26 + 35 + 1| 1| 61 + ON | a) digit |
+        <#yellow>| 26 + 35 + 1 = | 62 | 1 + OFF | b) = |;
     else (=)
         :Section 1.1.2 - Transaction **26 + 35 + = + =**
         |= Input |= Number |= Equation |= Notes |
-        <#yellow>| 26 + 35 + =| 122 | 122 + 61| a) =|
-        <#FFAAAA>| 26 + 35 + = +| 122| 122 +  | b) +|
-        <#yellow>| 26 + 35 + = + = | 244 | 122 + 122 | c) =|;
+        <#yellow>| 26 + 35 + =| 122 | 61 + OFF| a) =|
+        <#FFAAAA>| 26 + 35 + = +| 122| 122 + ON | b) +|
+        <#yellow>| 26 + 35 + = + = | 244 | 122 + OFF | c) =|;
     endif
 else (=)
     :Section 1.2 - Transaction **26 + 35 =**
     |= Input |= Number |= Equation |= Notes |
-    <#yellow>| 26 + 35 = | 61| 61 + 35| |;
-    if (+ or =) then (+)
+    <#yellow>| 26 + 35 = | 61 | 35 + OFF| a) = |;
+    if ( + or = or 1) then (+)
         :Section 1.2.1 - Transaction **26 + 35 = + 1 =**
         |= Input |= Number |= Equation |= Notes |
-        <#FFAAAA>| 26 + 35 = + | 61 | 61 + | a) + |
-        <#aqua>| 26 + 35 = + 1| 1 | 61 + 1| b) digit |
-        <#yellow>| 26 + 35 = + 1 = | 62| 62 + 1| c) = |;
-    else (=)
+        <#FFAAAA>| 26 + 35 = + | 61 | 61 + ON | a) + |
+        <#aqua>| 26 + 35 = + 1| 1 | 61 + ON | b) digit |
+        <#yellow>| 26 + 35 = + 1 = | 62| 1 + OFF | c) = |;
+    else ( = or 1)
+        if ( = or 1) then (=)
         :Section 1.2.2 - Transaction **26 + 35 = = =**
         |= Input |= Number |= Equation |= Notes |
-        <#yellow>| 26 + 35 = = | 96 | 96 + 35| a) = |
-        <#yellow>| 26 + 35 = = =| 131 | 131 + 35| b) =|
+        <#yellow>| 26 + 35 = = | 96 | 35 + OFF | a) = |
+        <#yellow>| 26 + 35 = = =| 131 | 35 + OFF | b) =|
         | | | | |;
+        else (1)
+        :Section 1.2.3 - Transaction **26 + 35 = 1 =**
+        |= Input |= Number |= Equation |= Notes |
+        <#aqua>| 26 + 35 = 1 | 1 | 35 + OFF | a) digit |
+        <#yellow>| 26 + 35 = 1 = | 36 | 35 + OFF | b) =|
+        | | | | |;
+        endif
     endif
 endif
 end

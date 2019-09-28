@@ -3,10 +3,10 @@ title
     ** src ** (Root folder)
     |_ ** main **
       |_ Calculator
-      |_ Expression
+      |_ Equation
     |_ ** test **
       |_ CalculatorTest
-      |_ ExpressionTest
+      |_ EquationTest
     |_ ** docs **
       |_ uml
       |_ png
